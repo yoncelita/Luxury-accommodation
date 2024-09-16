@@ -1,20 +1,58 @@
-/* Set the height of html and body to 100% to ensure the flex container takes full height */
 html, body {
     height: 100%;
-    margin: 0; /* Remove default margin */
+    margin: 0;
     display: flex;
     flex-direction: column;
 }
 
-/* Main container should flex to fill the remaining space */
-.container {
-    flex: 1; /* Allows the main content area to grow and push the footer to the bottom */
+.logo {
+    font-family: "Dancing Script", cursive;
+    font-size: 30px;
 }
 
-/* Footer styles */
+.container {
+    flex: 1;
+}
+
+.wrapper {
+    padding-left: 10%;
+    padding-right: 10%;
+    box-sizing: border-box;
+}
+
+ /* Custom Styles */
+ .hero {
+    background: url('/images/pexels-didsss-1740175.jpg') no-repeat center bottom/cover;
+    height: 75vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.gallery img {
+    height: 300px;
+    object-fit: cover;
+    width: 100%;
+}
+.icon-benefit {
+    font-size: 2rem;
+    color: #007bff;
+}
+
+
 footer {
-    background-color: #f8f9fa; /* Bootstrap light background */
-    padding: 1rem 0; /* Space inside the footer */
+    background-color: #f8f9fa;
+    padding: 1rem 0;
     text-align: center;
     width: 100%;
+}
+
+
+@media (max-width: 768px) {
+    .wrapper {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
 }
