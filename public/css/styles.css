@@ -1,0 +1,20 @@
+/* Set the height of html and body to 100% to ensure the flex container takes full height */
+html, body {
+    height: 100%;
+    margin: 0; /* Remove default margin */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main container should flex to fill the remaining space */
+.container {
+    flex: 1; /* Allows the main content area to grow and push the footer to the bottom */
+}
+
+/* Footer styles */
+footer {
+    background-color: #f8f9fa; /* Bootstrap light background */
+    padding: 1rem 0; /* Space inside the footer */
+    text-align: center;
+    width: 100%;
+}
