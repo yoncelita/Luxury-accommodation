@@ -1,19 +1,25 @@
 const express = require('express');
 const router = express.Router();
 
+
 // Home page
 router.get('/', (req, res) => {
     res.render('layout', { title: 'Home', content: 'home' });
 });
 
-// About page
-router.get('/about', (req, res) => {
-    res.render('layout', { title: 'About', content: 'about' });
+// Facilities & Services page
+router.get('/facilities', (req, res) => {
+    res.render('layout', { title: 'Facilities', content: 'facilities' });
 });
 
-// Services page
-router.get('/services', (req, res) => {
-    res.render('layout', { title: 'Services', content: 'services' });
+// Gallery
+router.get('/gallery', (req, res) => {
+    res.render('layout', { title: 'Gallery', content: 'gallery' });
+});
+
+// Availability
+router.get('/availability', (req, res) => {
+    res.render('layout', { title: 'Availability', content: 'availability' });
 });
 
 // Contact page
@@ -29,5 +35,9 @@ router.post('/contact', (req, res) => {
 router.get('/thank-you', (req, res) => {
     res.render('layout', { title: 'Thank You', content: 'thank-you' });
 });
+
+
+// TODO: 404 page
+
 
 module.exports = router;
