@@ -88,10 +88,10 @@ header.scrolled {
 .swiper-button-next,
 .swiper-button-prev {
     color: #000;
-    top: 50%; 
+    top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-    width: 30px; 
+    width: 30px;
     height: 30px;
 }
 
@@ -160,37 +160,52 @@ header.scrolled {
     0% {
         left: -75%;
     }
+
     25% {
         left: 100%;
     }
+
     26% {
         left: 100%;
     }
+
     100% {
         left: 100%;
     }
 }
 
-.btn-booking {
+.btn-booking,
+.btn-contact {
     background-color: transparent;
-    color: var(--secondary);
-    border: 1px solid var(--secondary) !important;
-    margin-top: 60px;
-    width: 18%;
+    width: max-content;
     font-weight: 500;
-    padding: 12px;
+    padding: 12px 50px;
     border-radius: 35px;
     font-size: 18px;
     transition: all 0.3s ease;
 }
 
+.btn-booking {
+    color: var(--secondary);
+    border: 1px solid var(--secondary) !important;
+}
+
 .btn-booking:hover {
-    background-color: var(--secondary)!important;
+    background-color: var(--secondary) !important;
     color: var(--primary);
     border: 1px solid var(--secondary) !important;
 }
 
+.btn-contact {
+    color: var(--primary);
+    border: 1px solid var(--primary) !important;
+}
 
+.btn-contact:hover {
+    background-color: var(--primary) !important;
+    color: var(--white);
+    border: 1px solid var(--primary) !important;
+}
 
 /* Custom Styles */
 .hero {
@@ -200,7 +215,44 @@ header.scrolled {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
+
+
+.hero::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 350px;
+    background: url('/images/image-from-rawpixel-id-12655441-png.png') no-repeat center center;
+    background-size: cover;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 350px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    z-index: 2;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 6;
+}
+
+/* .hero-container {
+    background: url('/images/image-from-rawpixel-id-12655441-png.png') no-repeat center bottom/cover;
+} */
+
+
 
 #gallerySection,
 #contactSection,
@@ -211,6 +263,11 @@ header.scrolled {
 #thankyouSection {
     margin-top: 100px;
 }
+
+#text-information {
+    z-index: 3;
+}
+
 
 .gallery img {
     height: 300px;
@@ -261,31 +318,24 @@ footer {
 
 
 
-@media (max-width: 768px) {
-    .logo {
-        font-size: 20px;
-        margin-left: 15px;
-    }
-}
-
-
 
 /* Services & Facilities */
 .category-wrapper {
     overflow-x: hidden;
 }
 
-.list-group-item { 
+.list-group-item {
     border: none;
+    background: none;
 }
 
 .category-item {
     display: flex;
     align-items: center;
-    margin: 50px 0;
     opacity: 0;
     animation-duration: 3s;
-    animation-fill-mode: forwards; 
+    animation-fill-mode: forwards;
+    position: relative;
 }
 
 .fa-check {
@@ -296,65 +346,68 @@ footer {
     color: green;
 }
 
-.category-item-img {
-    width: 200px;
-    border-radius: 50%;
-    height: 200px;
+.category-item-img-container {
+    width: 240px;
+    height: 240px;
     margin-right: 15px;
 }
 
-/* Horizontal line */
+.category-item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%
+}
+
+
 .category-line {
     flex-grow: 1;
     height: 0.2px;
     background-color: #b8b8b8;
 }
 
-/* Title styles */
 .category-title {
     font-size: 1.5rem;
     font-weight: 600;
     color: #333;
     white-space: nowrap;
-    padding: 0 20px; /* Padding to keep distance from the line */
+    padding: 0 20px;
 }
 
-/* Animation for sliding from left to right */
 @keyframes slideInLeft {
     0% {
-        transform: translateX(-15%); /* Start within the viewport */
+        transform: translateX(-15%);
         opacity: 0;
     }
+
     100% {
         transform: translateX(0);
         opacity: 1;
     }
 }
 
-/* Animation for sliding from right to left */
 @keyframes slideInRight {
     0% {
-        transform: translateX(15%); /* Start within the viewport */
+        transform: translateX(15%);
         opacity: 0;
     }
+
     100% {
         transform: translateX(0);
         opacity: 1;
     }
 }
 
-/* Applying animations */
 .animate-left {
     animation-name: slideInLeft;
-    justify-content: flex-start; /* Title on the left */
+    justify-content: flex-start;
 }
 
 .animate-right {
     animation-name: slideInRight;
-    justify-content: flex-end; /* Title on the right */
+    justify-content: flex-end;
 }
 
-/* Adding delays for staggered effect */
 .category-item:nth-child(1) {
     animation-delay: 0.2s;
 }
@@ -377,4 +430,216 @@ footer {
 
 .category-item:nth-child(6) {
     animation-delay: 1.2s;
+}
+
+
+/* Gallery --------- */
+
+
+.gallery img {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.02);
+    mix-blend-mode: luminosity;
+}
+
+.modal-dialog {
+    max-width: 65%;
+    width: 65%;
+}
+
+.gallery>div {
+    padding-right: 2px;
+    padding-left: 2px;
+    margin-bottom: 4px;
+}
+
+.modal-body {
+    padding: 0;
+}
+
+.modal.fade .modal-dialog {
+    transition: transform .3s ease-out;
+    transform: translate(0, -50px);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    margin: 0;
+}
+
+
+.carousel-item img {
+    width: 100%;
+}
+
+button.btn-close {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    padding: 1rem;
+    font-size: 1.2rem;
+    right: 0;
+    filter: invert(1);
+    opacity: 1;
+
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    top: 50%;
+    height: 52px;
+    opacity: 1;
+}
+
+
+/* Availability ----------------------------------------------- */
+
+.table-container {
+    margin: 50px auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.table-title {
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+
+table {
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+th,
+td {
+    text-align: center;
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+td.booked {
+    color: #d69593;
+    font-weight: bold;
+}
+
+.booked {
+    color: green;
+    font-weight: 100;
+}
+
+.note {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #777;
+}
+
+.form-control {
+    height: 40px;
+}
+
+#message {
+    height: 100px;
+}
+
+.btn-enquire {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-enquire:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* Snow effect */
+
+.snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999;
+    pointer-events: none;
+}
+
+.snowflake {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+        transform: translateY(100vh);
+    }
+}
+
+@keyframes diagonal-fall {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.25;
+        transform: translate(10vw, 100vh);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .logo {
+        font-size: 20px;
+        margin-left: 15px;
+    }
+/* 
+    .hero {
+        height: 60vh;
+    } */
+
+    .social-icons-vertical {
+        top: 65%;
+    }
+
+    .social-icons-vertical a {
+        font-size: 1.3rem;
+    }
+
+    .modal-dialog {
+        max-width: 90%;
+        width: 90%;
+    }
 }
