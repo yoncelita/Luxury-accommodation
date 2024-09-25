@@ -22,68 +22,76 @@
 
     <div class="snow-container"></div>
 
-        <!-- Social icons -->
-        <div class="social-icons-vertical">
-            <a href="https://facebook.com" class="text-dark" target="_blank">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://twitter.com" class="text-dark" target="_blank">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://instagram.com" class="text-dark" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-        </div>
+    <!-- Social icons -->
+    <div class="social-icons-vertical">
+        <a href="https://facebook.com" class="text-dark" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com" class="text-dark" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
 
 
 
-        <header class="fixed-top transparent" style="width: 100%; z-index: 1030;">
-            <nav class="navbar">
-                <div class="container">
-                    <a class="logo navbar-brand fw-bold text-dark" href="/">
-                        villa
-                    </a>
+    <header class="fixed-top transparent" style="width: 100%; z-index: 1030;">
+        <nav class="navbar">
+            <div class="container">
+                <a class="logo navbar-brand fw-bold text-dark" href="/">
+                    villa
+                </a>
 
-                    <!-- Navbar Toggler (only visible on mobile) -->
-                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                <!-- Navbar Toggler (only visible on mobile) -->
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                    <!-- Navbar Links (visible on larger screens) -->
-                    <div class="d-none d-lg-flex">
-                        <ul class="navbar-nav ms-auto flex-row gap-3">
-                            <li class="nav-item"><a class="nav-link text-dark" href="/facilities">Facilities &
-                                    Services</a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link text-dark" href="/gallery">Gallery</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/availability">Availability <span class="booked">24/25</span></a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link text-dark" href="/contact">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-            <!-- Offcanvas Menu (only visible on mobile) -->
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title invisible" id="offcanvasNavbarLabel">Menu</h5>
-                    <!-- <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
-                    <span class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></span>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link text-dark" href="/facilities">Facilities & Services</a></li>
+                <!-- Navbar Links (visible on larger screens) -->
+                <div class="d-none d-lg-flex">
+                    <ul class="navbar-nav ms-auto flex-row gap-3">
+                        <li class="nav-item"><a class="nav-link text-dark" href="/facilities">Facilities &
+                                Services</a>
+                        </li>
                         <li class="nav-item"><a class="nav-link text-dark" href="/gallery">Gallery</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark" href="/availability">Availability</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/availability">Availability <span
+                                    class="booked">24/25</span></a>
+                        </li>
                         <li class="nav-item"><a class="nav-link text-dark" href="/contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
-    </div>
+        </nav>
+
+        <!-- Offcanvas Menu (only visible on mobile) -->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title invisible" id="offcanvasNavbarLabel">Menu</h5>
+                <!-- <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
+                <span class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></span>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-dark" href="/facilities">Facilities & Services</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="/gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="/availability">Availability</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="offcanvas-footer">
+                <div class="social-icons-horizontal">
+                    <a href="https://facebook.com" class="text-dark" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com" class="text-dark" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
     </header>
 
 
@@ -101,6 +109,19 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <script>
+        const offcanvas = document.getElementById('offcanvasNavbar');
+        const socialIcons = document.querySelector('.social-icons-vertical');
+        offcanvas.addEventListener('show.bs.offcanvas', function () {
+            socialIcons.classList.add('invisible');
+        });
+
+        offcanvas.addEventListener('hide.bs.offcanvas', function () {
+            socialIcons.classList.remove('invisible');
+        });
+
+
+
+
         document.addEventListener('DOMContentLoaded', function () {
             const header = document.querySelector('header');
 
