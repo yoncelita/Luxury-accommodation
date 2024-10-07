@@ -23,22 +23,23 @@
     <div class="snow-container"></div>
 
     <!-- Social icons -->
+<!-- <i class="fab fa-facebook-f"></i> -->
+ <!-- <i class="fab fa-instagram"></i> -->
     <div class="social-icons-vertical">
         <a href="https://facebook.com" class="text-dark" target="_blank">
-            <i class="fab fa-facebook-f"></i>
+            <img src="/images/facebook-icon.svg" alt="facebook" width="35"/>
         </a>
         <a href="https://instagram.com" class="text-dark" target="_blank">
-            <i class="fab fa-instagram"></i>
+            <img src="/images/instagram-icon.svg" alt="instagram" width="35"/>
         </a>
     </div>
-
 
 
     <header class="fixed-top transparent" style="width: 100%; z-index: 1030;">
         <nav class="navbar">
             <div class="container">
                 <a class="logo navbar-brand fw-bold text-dark" href="/">
-                    villa
+                    <img src="/images/logo.svg" alt="logo">
                 </a>
 
                 <!-- Navbar Toggler (only visible on mobile) -->
@@ -51,14 +52,14 @@
                 <!-- Navbar Links (visible on larger screens) -->
                 <div class="d-none d-lg-flex">
                     <ul class="navbar-nav ms-auto flex-row gap-3">
-                        <li class="nav-item"><a class="nav-link text-dark" href="/facilities">Facilities &
+                        <li class="nav-item"><a class="nav-link" href="/facilities">Facilities &
                                 Services</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link text-dark" href="/gallery">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a></li>
                         <li class="nav-item"><a class="nav-link" href="/availability">Availability <span
                                     class="booked">24/25</span></a>
                         </li>
-                        <li class="nav-item"><a class="nav-link text-dark" href="/contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -124,14 +125,24 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             const header = document.querySelector('header');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const logo = document.querySelector('.logo');
+            const social = document.querySelectorAll('.social-icons-vertical a');
 
             window.addEventListener('scroll', function () {
                 if (window.scrollY > 50) {
                     header.classList.add('scrolled');
                     header.classList.remove('transparent');
+                    navLinks.forEach(el => el.style.color = "black");
+                    logo.style.filter = "invert(0)";
+                    // social.forEach(el => el.classList.add('white-bg'));
+                    
                 } else {
                     header.classList.remove('scrolled');
                     header.classList.add('transparent');
+                    navLinks.forEach(el => el.style.color = "white");
+                    logo.style.filter = "invert(1)";
+                    // social.forEach(el => el.classList.remove('white-bg'));
                 }
             });
         });
