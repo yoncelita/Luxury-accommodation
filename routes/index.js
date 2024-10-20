@@ -17,6 +17,11 @@ router.get('/gallery', (req, res) => {
     res.render('layout', { title: 'Gallery', content: 'gallery' });
 });
 
+// Courchevel
+router.get('/courchevel', (req, res) => {
+    res.render('layout', { title: 'Courchevel', content: 'courchevel' });
+});
+
 // Availability
 router.get('/availability', (req, res) => {
     res.render('layout', { title: 'Availability', content: 'availability' });
