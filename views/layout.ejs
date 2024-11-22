@@ -23,14 +23,16 @@
     <div class="snow-container"></div>
 
     <!-- Social icons -->
-    <!-- <i class="fab fa-facebook-f"></i> -->
-    <!-- <i class="fab fa-instagram"></i> -->
     <div class="social-icons-vertical">
         <a href="https://facebook.com" class="text-dark" target="_blank">
             <img src="/images/facebook-icon.svg" alt="facebook" width="35" />
         </a>
         <a href="https://instagram.com" class="text-dark" target="_blank">
             <img src="/images/instagram-icon.svg" alt="instagram" width="35" />
+        </a>
+        <a href="https://wa.me/33685915567" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon"
+                class="whatsapp-icon">
         </a>
     </div>
 
@@ -39,7 +41,7 @@
         <nav class="navbar">
             <div class="container">
                 <a class="logo navbar-brand fw-bold text-dark" href="/">
-                    <img src="/images/logo.svg" alt="logo">
+                    <img src="/images/le-sasha-logo.svg" alt="logo">
                 </a>
 
                 <!-- Navbar Toggler (only visible on mobile) -->
@@ -115,6 +117,10 @@
     <script>
         const offcanvas = document.getElementById('offcanvasNavbar');
         const socialIcons = document.querySelector('.social-icons-vertical');
+
+        socialIcons.style.top = `${window.scrollY + window.innerHeight / 2}px`;
+
+
         offcanvas.addEventListener('show.bs.offcanvas', function () {
             socialIcons.classList.add('invisible');
         });
@@ -311,6 +317,7 @@
 
                     const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
                     imageModal.show();
+
                 });
             });
         });
@@ -323,6 +330,30 @@
                 interval: false,
                 ride: false
             });
+        });
+
+
+
+
+        // Read more toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            const readMoreToggle = document.querySelector('.read-more-toggle');
+            const extraContent = document.querySelector('.extra-content');
+            const fadeOverlay = document.querySelector('.fade-overlay');
+
+            if (readMoreToggle) {
+                readMoreToggle.addEventListener('click', function () {
+                    if (extraContent.style.display === 'none' || extraContent.style.display === '') {
+                        extraContent.style.display = 'inline';
+                        fadeOverlay.style.display = 'none';
+                        readMoreToggle.innerHTML = 'Read Less <span class="arrow">➔</span>';
+                    } else {
+                        extraContent.style.display = 'none';
+                        fadeOverlay.style.display = 'block';
+                        readMoreToggle.innerHTML = 'Read More <span class="arrow">➔</span>';
+                    }
+                });
+            }
         });
 
 

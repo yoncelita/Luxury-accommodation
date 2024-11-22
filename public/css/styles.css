@@ -47,17 +47,16 @@ main {
 }
 
 .logo img {
-    width: 90px;
+    width: 130px;
     height: auto;
 }
-
 
 .container {
     flex: 1;
 }
 
 .display-4 {
-    text-shadow: 1px 1px 12px #00000085;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
 }
 
 .nav-link {
@@ -74,7 +73,6 @@ main {
     outline: none;
     box-shadow: none;
 }
-
 
 .btn-close {
     border: none;
@@ -100,6 +98,70 @@ header.scrolled {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
+
+
+.property-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary);
+    margin: 0;
+}
+
+.unit {
+    font-size: 1rem;
+    vertical-align: top;
+}
+
+.property-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #7d7f83;
+    letter-spacing: 1px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* Initial styles for content */
+.text-content {
+    position: relative;
+    overflow: hidden;
+    line-height: 1.6;
+}
+
+
+.fade-overlay {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to bottom, rgb(255 255 255 / 30%) 0%, rgba(255, 255, 255, 1) 100%);
+    display: none;
+    z-index: 1;
+}
+
+.extra-content {
+    display: block;
+}
+
+
+.read-more-toggle {
+    display: none;
+    font-size: 0.9em;
+    color: var(--primary);
+    cursor: pointer;
+    position: relative;
+    margin-top: 10px;
+    z-index: 2;
+    text-decoration: none;
+}
+
+.arrow {
+    font-size: 0.9em;
+    margin-left: 5px;
+}
+
 
 .test {
     color: var(--black);
@@ -137,17 +199,17 @@ header.scrolled {
 .social-icons-vertical {
     position: fixed;
     top: 50%;
-    right: 20px;
+    right: 15px;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     gap: 8px;
     z-index: 1050;
+    will-change: transform;
 }
 
 .social-icons-vertical a {
     color: #000;
-    /* font-size: 1.5rem; */
     transition: color 0.3s ease;
 }
 
@@ -257,7 +319,7 @@ header.scrolled {
 
 /* Custom Styles */
 .hero {
-    background: url('/images/image00004.webp') no-repeat center center/cover;
+    background: url('/images/image00004_desktop.webp') no-repeat center center/cover;
     height: 75vh;
     color: white;
     display: flex;
@@ -295,12 +357,8 @@ header.scrolled {
 .hero .container {
     position: relative;
     z-index: 6;
+    top: -20px;
 }
-
-/* .hero-container {
-    background: url('/images/image-from-rawpixel-id-12655441-png.png') no-repeat center bottom/cover;
-} */
-
 
 
 #gallerySection,
@@ -334,10 +392,13 @@ header.scrolled {
     padding: 30px;
 }
 
+.offcanvas {
+    display: unset !important;
+}
+
 .offcanvas.offcanvas-start {
     width: 75%;
     height: 100vh;
-    /* background: url('/images/pexels-didsss-1740175.jpg') no-repeat center bottom/cover; */
 }
 
 .offcanvas-header {
@@ -769,13 +830,38 @@ td.booked {
     }
 }
 
+.whatsapp-icon {
+    width: 35px;
+    height: auto;
+}
+
+#home-contact {
+    .whatsapp-icon {
+        width: 25px;
+        height: auto;
+    }
+}
+
 
 
 @media (max-width: 1200px) {
 
-    .container .row {
-        flex-direction: column;
+     .hero {
+        height: 50vh;
+        background-color: #00000069;
     }
+
+    .hero::before {
+        height: 320px;
+    }
+
+    .hero::after {
+        height: 300px;
+    }
+
+    /* .container .row {
+        flex-direction: column;
+    } */
 
     .col-lg-7,
     .col-lg-4 {
@@ -789,13 +875,45 @@ td.booked {
 
 
 @media (max-width: 768px) {
+
+    /* Custom Styles */
+    .hero {
+        background: url('/images/image00004_desktop_compress.webp') no-repeat center center/cover;
+        height: 63vh;
+        background-color: #00000029;
+    }
+
+    .hero .container {
+        top: 55px;
+    }
+
+    .hero::before {
+        bottom: -162px;
+        width: 100%;
+        height: 383px;
+    }
+
+    .hero::after {
+        height: 115px;
+    }
+
+    .lead {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .display-4 {
+        font-size: 26px;
+        margin: 30px;
+    }
+
     .logo {
-        font-size: 20px;
+        font-size: 35px;
         margin-left: 15px;
     }
 
     .logo img {
-        width: 55px;
+        width: 80px;
     }
 
 
@@ -814,7 +932,7 @@ td.booked {
 
     .category-item {
         text-align: center;
-        padding: 15px;
+        /* padding: 15px; */
         flex-wrap: wrap;
         justify-content: left;
     }
@@ -846,4 +964,143 @@ td.booked {
 
     }
 
+
+    .fade-overlay {
+        display: block;
+    }
+
+    .extra-content {
+        display: none;
+    }
+
+
+    .read-more-toggle {
+        display: block;
+    }
+
+
+    .fade-overlay {
+        display: block;
+    }
+}
+
+
+
+/* Overlay Style */
+.overlay {
+    display: block;
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    left: 0;
+    padding: 5px 10px;
+    font-size: 14px;
+    z-index: 10;
+    color: white;
+    text-align: center;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+}
+
+/* Responsive Multi-Height Grid for Images */
+.row.g-3 .col-md-4 .position-relative {
+    height: auto;
+}
+
+
+#sightseeing .img-wrap {
+    width: 100%;
+    height: 400px;
+}
+
+#sightseeing .img-wrap .img-fluid {
+    max-width: 100%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+#restaurants {
+    background: #f9f9f9;
+}
+
+.restaurant-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.icon {
+    font-size: 2rem;
+    color: #333;
+}
+
+.restaurant-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.restaurant-desc {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.tripadvisor-logo {
+    height: 20px;
+    width: auto;
+}
+
+
+.stars {
+    font-size: 0.6rem;
+}
+
+
+.property-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.property-number {
+    font-size: 2.5rem;
+    font-weight: 100;
+    color: #0f284f;
+    /* Dark blue color */
+    margin: 0;
+}
+
+.unit {
+    font-size: 1rem;
+    vertical-align: top;
+}
+
+.property-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #7d7f83;
+    letter-spacing: 1px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+@media (max-width: 576px) {
+    .property-info .row {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 10px;
+    }
+
+    .property-col {
+        min-width: 100px;
+    }
 }
