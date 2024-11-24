@@ -1,6 +1,5 @@
 <div class="container" id="contactSection">
-
-    <div class="row">
+ <div class="row">
         <div class="col-md-6 mb-5 mb-xl-0">
             <h3 class="h1">Contact us</h3>
             <p class="mb-5">If you would like to enquire about prices or availability, please fill in the form below:
@@ -22,6 +21,17 @@
 
                 <button type="submit" class="btn btn-contact btn-lg m-0">Send</button>
             </form>
+            <% if (typeof success !== 'undefined') { %>
+                <div class="alert alert-success" role="alert">
+                  Thank you for your message! We'll get back to you soon.
+                </div>
+              <% } %>
+              
+              <% if (typeof error !== 'undefined') { %>
+                <div class="alert alert-danger" role="alert">
+                  Sorry, there was an error sending your message. Please try again later.
+                </div>
+              <% } %>
         </div>
 
         <div class="col-md-6">
@@ -32,7 +42,6 @@
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
-
     </div>
 </div>
 
