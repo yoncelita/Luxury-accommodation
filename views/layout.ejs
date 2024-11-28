@@ -93,6 +93,10 @@
                     <a href="https://instagram.com" class="text-dark" target="_blank">
                         <img src="/images/instagram-icon.svg" alt="instagram" width="35" />
                     </a>
+                    <a href="https://wa.me/33685915567" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon"
+                            class="whatsapp-icon">
+                    </a>
                 </div>
             </div>
         </div>
@@ -357,7 +361,38 @@
         });
 
 
+        // JavaScript Email Validation
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            const nameField = document.getElementById('name');
+            const emailField = document.getElementById('email');
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
 
+            let isValid = true;
+
+            // Regex for name (only letters and spaces)
+            const nameRegex = /^[A-Za-z\s]+$/;
+
+            if (!nameRegex.test(nameField.value.trim())) {
+                isValid = false;
+                nameError.classList.remove('d-none');
+            } else {
+                nameError.classList.add('d-none');
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailRegex.test(emailField.value.trim())) {
+                isValid = false;
+                emailError.classList.remove('d-none');
+            } else {
+                emailError.classList.add('d-none');
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
 
     </script>
 </body>

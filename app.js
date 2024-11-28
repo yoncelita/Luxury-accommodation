@@ -69,21 +69,32 @@ app.post('/contact', async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
-        user: process.env.EMAIL_USER, // Replace with your email
-        pass: process.env.EMAIL_PASS,   // Replace with your Gmail App Password
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS, 
       },
       tls: {
-        rejectUnauthorized: false, // Ignore self-signed certificate errors
+        rejectUnauthorized: false,
       },
     });
 
     // Email options
     const mailOptions = {
-      from: email,
-      to: process.env.EMAIL_USER, // Replace with your recipient email
+      from: process.env.EMAIL_USER,
+      to: ['yoana.art@gmail.com', 'ignatov.ti@gmail.com'], // Replace with your recipient email
+      replyTo: email,
       subject: `LE SASHA Contact Form from ${name}`,
-      text: message,
+      text: `
+      You have a new contact form submission.
+
+      Name: ${name}
+      Email: ${email}
+
+      Message:
+      ${message}
+    `,
     };
+
+    console.log(mailOptions.to);
 
     // Send email
     await transporter.sendMail(mailOptions);
